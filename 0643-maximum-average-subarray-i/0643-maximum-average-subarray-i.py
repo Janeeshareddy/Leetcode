@@ -5,10 +5,11 @@ class Solution(object):
         :type k: int
         :rtype: float
         """
-        windows_sum=sum(nums[:k])
-        answer=windows_sum
+        ssum=0
+        for i in range(k):
+            ssum+=nums[i]
+        max_sum=ssum
         for i in range(k,len(nums)):
-            windows_sum+=nums[i]
-            windows_sum-=nums[i-k]
-            answer=max(answer,windows_sum)
-        return float(answer)/k
+            ssum=ssum-nums[i-k]+nums[i]
+            max_sum=max(max_sum,ssum)
+        return float(max_sum)/k
