@@ -5,12 +5,11 @@ class Solution(object):
         :rtype: int
         """
         left=0
-        chars=set()
-        answer=0
+        ans=0
+        freq={}
         for right in range(len(s)):
-            while s[right] in chars:
-                chars.remove(s[left])
-                left+=1
-            chars.add(s[right])
-            answer=max(answer,right-left+1)
-        return answer
+            if s[right] in freq and freq[s[right]]>=left:
+                left=freq[s[right]]+1
+            freq[s[right]]=right
+            ans=max(ans,right-left+1)
+        return ans
