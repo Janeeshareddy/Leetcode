@@ -1,17 +1,11 @@
-class Solution(object):
-    def isPalindrome(self, x):
-        """
-        :type x: int
-        :rtype: bool
-        """
-        x=str(x)
-        l=0
-        r=len(x)-1
-        while l<r:
-            if x[l]!=x[r]:
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        y=str(x)
+        left=0
+        right=len(y)-1
+        while left<right:
+            if y[left]!=y[right]:
                 return False
-            else:
-                l+=1
-                r-=1
+            left+=1
+            right-=1
         return True
-            
