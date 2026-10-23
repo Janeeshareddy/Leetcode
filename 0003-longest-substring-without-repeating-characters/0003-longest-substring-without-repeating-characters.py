@@ -8,8 +8,9 @@ class Solution(object):
         ans=0
         freq={}
         for right in range(len(s)):
-            if s[right] in freq and freq[s[right]]>=left:
-                left=freq[s[right]]+1
-            freq[s[right]]=right
+            ch=s[right]
+            if ch in freq and freq[ch]>=left:
+                left=freq[ch]+1
+            freq[ch]=right
             ans=max(ans,right-left+1)
         return ans
