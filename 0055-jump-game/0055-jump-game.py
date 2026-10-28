@@ -4,11 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        gas=0
-        for item in nums:
-            if gas<0:
+        farthest=0
+        for i in range(len(nums)):
+            if i>farthest:
                 return False
-            if item>gas:
-                gas=item
-            gas-=1
+            farthest=max(farthest,i+nums[i])
         return True
