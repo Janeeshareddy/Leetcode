@@ -14,10 +14,10 @@ class Solution(object):
             b=t[i]
             if a in d1 and d1[a]!=b:
                 return False
-                break
+                # break
             if b in d2 and d2[b]!=a:
                 return False
-                break
+                # break
             d1[a]=b
             d2[b]=a
         return True
